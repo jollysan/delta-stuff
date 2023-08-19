@@ -6,7 +6,7 @@ module clockdivider_tb;
 	reg rst;
 
 	// Outputs
-	wire [3:0]divideby_2to16 //most significant 16, lsb 2
+	wire [3:0]divideby_2to16; //most significant 16, lsb 2
 
 	// Instantiate the Unit Under Test (UUT)
 	clockdivider uut (
