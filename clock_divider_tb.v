@@ -28,6 +28,6 @@ module clockdivider_tb;
 	#10 clk=~clk;
 	
 	initial 
-	#100 $finish;
+	#400 $finish;
       
 endmodule
