@@ -17,7 +17,7 @@ module ring_counter(clk,reset,count);
 				for(int i = WIDTH-1; i >= 0; i = i - 1) begin	//bitimizi oynatmayı ringing büyüklüğü sayısınca yapıyoruz
 				
 					count[i] <= (i==WIDTH-1)? count[0] : count[i+1];	//bitimizi lsb ye doğru kaydırıyoruz, msb ise lsb değerini alıyor
-					
+												//johnsondan farkı count[0] kısmını düz aldık, not değil
 					
 				end
 			//endgenerate
