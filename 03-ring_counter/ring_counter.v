@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module johnson_counter(clk,reset,count);
+module ring_counter(clk,reset,count);
 
 	parameter WIDTH=4; //ringin kaç bitlik olacağını belirtiyor
 	
@@ -14,9 +14,9 @@ module johnson_counter(clk,reset,count);
 		if(reset) begin
 			//generate artık kullanılmıyor?, edaplaygroundda anlayamadım
 			//generate
-				for(int i = 0; i < WIDTH; i = i + 1) begin	//bitimizi oynatmayı ringing büyüklüğü sayısınca yapıyoruz
+				for(int i = WIDTH-1; i >= 0; i = i - 1) begin	//bitimizi oynatmayı ringing büyüklüğü sayısınca yapıyoruz
 				
-					count[i] <= (i==0)? count[WIDTH-1] : count[i-1];	//bitimizi msb ye doğru kaydırıyoruz, lsb ise msb değerini alıyor
+					count[i] <= (i==WIDTH-1)? count[0] : count[i+1];	//bitimizi lsb ye doğru kaydırıyoruz, msb ise lsb değerini alıyor
 					
 					
 				end
