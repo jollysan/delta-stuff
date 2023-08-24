@@ -54,7 +54,7 @@ module mult_4bit (a, b, result);
 	//the logic begind is that sum[0] is 1 only when a[0] and b[0] is 1
 	//			   sum[1] is sum of (a[0] && b[1]) and (a[1] && b[0])
 	//any higher bits of input cant affect lower bits of the sum
-	//like decimal 37 is 3*10^1 + 7*10^0, and the 3 cant affect 10^0's ddigit of the sum
+	//like decimal 37 is 3*10^1 + 7*10^0, and the 3 cant affect 10^0's digit of the sum
 
 	//a decimal example
 	//	37 * 13 ;	 10^0's digit is 7*3 only: 1 other digits cant affect it. 	(7*10^0)*(3*10^0) = 21 * 10^0 (2 carry)
