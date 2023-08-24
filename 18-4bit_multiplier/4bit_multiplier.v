@@ -1,4 +1,4 @@
-module cla_4bit (a, b, cin, sum, cout);	//the exact code of 4bit cla from before
+module cla_4bit (a, b, cin, sum, cout);	//4 bit carry look-ahead adder
 	input [3:0] a, b;
 	input cin;
 	output [3:0] sum;
