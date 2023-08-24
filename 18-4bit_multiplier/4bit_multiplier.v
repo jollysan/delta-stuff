@@ -51,6 +51,17 @@ module mult_4bit (a, b, result);
 		end
 	endgenerate
 
+	//the logic begind is that sum[0] is 1 only when a[0] and b[0] is 1
+	//			   sum[1] is sum of (a[0] && b[1]) and (a[1] && b[0])
+	//any higher bits of input cant affect lower bits of the sum
+	//like decimal 37 is 3*10^1 + 7*10^0, and the 3 cant affect 10^0's ddigit of the sum
+
+	//a decimal example
+	//	37 * 13 ;	 10^0's digit is 7*3 only: 1 other digits cant affect it. 	(7*10^0)*(3*10^0) = 21 * 10^0 (2 carry)
+	//			 10^1's digit is 3*3 + 1*7 + carry: 8				(3*10^1)*(3*10^0) + (1*10^1)*(7*10^0) + 2 = 18 * 10^1 (1 carry)
+	//			 10^2's digit is 3*1 + carry: 4					(3*10^1)*(1*10^1) + 1 = 4 * 10^2 (0 carry)
+	//for binary its the same, just digits of 2^n
+	
 	// Carry-lookahead adder instances
 	cla_4bit add1 ({1'b0, and1[3:1]}, and2, 0, sum1, carry[0]);
 	cla_4bit add2 (and3, {carry[0] , sum1[3:1]}, 0, sum2, carry[1]);
