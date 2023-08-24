@@ -52,7 +52,7 @@ module mult_4bit (a, b, result);
 	endgenerate
 
 	// Carry-lookahead adder instances
-	cla_4bit add1 ({0, and1[3:1]}, and2, 0, sum1, carry[0]);
+	cla_4bit add1 ({1'b0, and1[3:1]}, and2, 0, sum1, carry[0]);
 	cla_4bit add2 (and3, {carry[0] , sum1[3:1]}, 0, sum2, carry[1]);
 	cla_4bit add3 (and4, {carry[1] , sum2[3:1]}, 0, sum3, carry[2]);
 
