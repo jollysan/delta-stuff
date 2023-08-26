@@ -1,4 +1,4 @@
 # delta-stuff
 tasks for delta
 
-aynısı olmasın diye değiştirmeye çalıştım
+test benchs are from https://github.com/Ummidichandrika/100-Days-of-RTL
