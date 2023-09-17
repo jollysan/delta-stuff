@@ -6,10 +6,10 @@ module ring_counter(clk,reset,count);
 	
 	input clk,reset;
 	
-	output reg [WIDTH-1:0] count;
+	output reg [WIDTH-1:0] count = 3'b001;
 	
 	
-	always@(posedge clk or posedge reset)
+	always@(posedge clk or negedge clk)
 	begin
 		if(reset) begin
 			
@@ -44,7 +44,7 @@ module round_arbit(in, out, clk);
 	
 	ring_counter gen_priority(clk, 1'b1, ring);	//get a new priority for every cycle
 	
-	always @(posedge clk) begin
+	always @(*) begin
 		prior = ring;
 		for(integer i = 0; i < 2; i = i + 1) begin
 		
@@ -56,12 +56,12 @@ module round_arbit(in, out, clk);
 				out <= 3'b001;
 			else if(in == 3'b000)
 				out <= 3'b000;
-			else			//if no active input has most priority, change priority to second most, then third
+			else begin		//if no active input has most priority, change priority to second most, then third
 				if(prior[2])
-					prior = 3'b001		//msb to lsb, like reversed ring counter
+					prior = 3'b001;		//msb to lsb, like reversed ring counter
 				else
 					prior = prior<<1;	//next most prior in the current cycle
-			
+			end
 		end
 	end
 	
