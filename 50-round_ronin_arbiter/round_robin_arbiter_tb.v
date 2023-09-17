@@ -7,17 +7,17 @@ module round_robin_arbiter_tb;
   
 	reg clk = 0;
   
-  round_arbit dut(go1, go2, go3, get1, get2, get3, clk);
+  round_arbit dut(go, get, clk);
 
 //define input sequence
 initial
 begin
   
-	#0 go[0] = 0; go[1] = 0; go[2] = 0;
+	#0  go[0] = 0; go[1] = 0; go[2] = 0;
 	#10 go[0] = 1; go[1] = 0; go[2] = 0;
 	#10 go[0] = 0; go[1] = 1; go[2] = 0;
-	#7  go[0] = 0; go[1] = 0; go[2] = 1;
-	#13 go[0] = 1; go[1] = 0; go[2] = 1;
+	#10 go[0] = 0; go[1] = 0; go[2] = 1;
+	#10 go[0] = 1; go[1] = 0; go[2] = 1;
 	#10 go[0] = 0; go[1] = 1; go[2] = 1;
 	#10 go[0] = 1; go[1] = 0; go[2] = 1;
 	#10 go[0] = 1; go[1] = 1; go[2] = 0;
