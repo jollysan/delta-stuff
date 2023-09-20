@@ -1,5 +1,5 @@
 parameter WIDTH=4;
-
+//if dir, shift right(into lsb), else shift left
 module bi_shift(in, reset, dir, clk, out);
 	input clk, in, reset;
 	output reg out;
