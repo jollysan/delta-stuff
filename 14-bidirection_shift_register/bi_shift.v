@@ -16,9 +16,9 @@ module bi_shift(in, reset, dir, clk, out);
 				shift[WIDTH-1] = in;	//input to first bit(msb)
 			end
 			else begin
-				out = shift[WIDTH-1];	//output last bit(lsb)
+				out = shift[WIDTH-1];	//output first bit(msb)
 				shift = shift << 1;	//every cycle, shift 1
-				shift[0] = in;		//input to first bit(msb)
+				shift[0] = in;		//input to last bit(lsb)
 			end
 		end
 	end
