@@ -8,7 +8,7 @@ module moore_1010_detect(in, out, clk);
 	wire d0, d1, d2;			//wires to route data to update the state at the posedge
 	
 	
-	//these operations are the result of the moore machine for 1010, i will upload the graph to my github
+	//these operations are the result of the moore machine diagram for 1010, i will upload the diagram to my github
 	assign d2 = !in && state[1] && !state[0];
 	assign d1 = in;
 	assign d0 = (in && state[2] && !state[1] && !state[0]) || (!in && !state[2] && state[1] && state[0]);
