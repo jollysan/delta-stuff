@@ -18,7 +18,7 @@ initial
 begin
 //display variables
   $dumpfile("dump.vcd"); $dumpvars;
-  $monitor("time: %b%b.%b%b.%b%b|", ms_hr, ls_hr, ms_min, ls_min, ms_sec, ls_sec);
+  $monitor("time: %d%d.%d%d.%d%d|", ms_hr, ls_hr, ms_min, ls_min, ms_sec, ls_sec);
 #200 $finish;
 end 
   
