@@ -3,6 +3,11 @@
 //reset does not work, please do not reset
 //reset does something but not anything helpful
 
+//can use reset to start it initially
+//when reset is 1, it does not count
+
+//but after the initial start, reset is unstable
+
 module asynch_down_counter(reset, clk, q);
 	
 	input clk, reset;
@@ -27,8 +32,8 @@ endmodule
 module jkff(j, k, clk, q, nq);
 	
 	input j, k, clk;
-	output reg q = 0;
-	output reg nq = 1;
+	output reg q = 1;
+	output reg nq = 0;
 	
 	
 	always @ (posedge clk) begin
